@@ -1,0 +1,90 @@
+
+<br/>
+<div class="alert alert-dismissible alert-danger" *ngIf="addResourcResponseError">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> {{addResourcResponseError}}</strong> 
+   <!-- Change a few things up and try submitting again. -->
+</div>
+
+<div class="alert alert-dismissible alert-success" *ngIf="addResourcResponseSuccess">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Well done!</strong> {{addResourcResponseSuccess}}.
+</div>
+
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Add resource </h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+            <div class="form-group">
+              <label for=" ">Resource name</label>
+              <input type="text"id="name" placeholder="Truck/ Tractor" class="form-control rounded-0"
+              formControlName="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for=" ">Resource number</label>
+              <input type="text" formControlName="resourceNumber" name="resourceNumber" class="form-control rounded-0"
+                required>
+            </div>
+            <div class="form-group">
+              
+                <label for=" ">Resource status</label>
+                <select formControlName="resourceStatus" class="custom-select">
+                  <option selected="available">available</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input  type="file"  class="custom-file-input"  id="avatar" (change)="onFileChange($event)" #fileInput >
+                  <label class="custom-file-label" for="avatar">Upload image</label>
+                </div>              
+              </div>
+            </div>    
+            
+            <div class="form-group">
+              <label for=" ">Resource own by 
+                <b>{{ownername}}</b>
+              </label>
+            </div>   
+
+            <div class="form-group">
+                <label for=" ">User Id <b> {{userid}} </b></label>
+               
+              </div>   
+
+              <div class="form-group">
+                  <label for=" ">Mobile number <b> {{phoneNumber}}</b> </label>
+              </div>   
+            <!-- <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file"    id="avatar" (change)="onFileChange($event)" #fileInput  class="custom-file-input" >
+                  <label class="custom-file-label" for="avatar" >Choose file</label>
+                </div>
+              </div>
+            </div> -->
+            
+            <!-- <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success float-right">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button> -->
+
+            <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success float-right">Submit </button>
+
+            <button type="button" type="reset" (click)="clearFile()" class="btn btn-primary float-left ">Reset</button>
+
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+    </div>
+  </div>
+</div> 

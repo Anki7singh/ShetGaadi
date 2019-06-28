@@ -1,0 +1,69 @@
+
+<br/>
+<div class="alert alert-dismissible alert-danger" *ngIf="addRegisterResponseError">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> {{addRegisterResponseError}}</strong> 
+   <!-- Change a few things up and try submitting again. -->
+</div>
+
+<div class="alert alert-dismissible alert-success" *ngIf="addRegisterResponseSuccess">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Well done!</strong> {{addRegisterResponseSuccess}}.
+  <p>Please Login to access resources. </p>
+</div>
+
+
+
+
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Register</h3>
+        </div>
+        <div class="card-body">
+          <form class="form">
+
+            <div class="form-group">
+              <label for=" ">Username</label>
+              <input type="text" [(ngModel)]="registerUserData.name" name="name" class="form-control rounded-0"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for=" ">Mobile Number</label>
+              <input type="text" [(ngModel)]="registerUserData.phone_number" name="phone_number" class="form-control rounded-0"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="  ">Email</label>
+              <input type="email" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0"
+                required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"
+                required>
+            </div>
+            <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+         
+ 
+            <button type="button" type="reset" (click)="alert()" class="btn btn-primary float-left">Reset</button>
+
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div *ngif=class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+</div> -->

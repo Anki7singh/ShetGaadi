@@ -1,0 +1,43 @@
+
+
+
+    <!-- <div  class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Notification !</strong>You have resource request. 
+  </div>
+
+    <div *ngIf="data.success==='false'"  class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Notification !</strong>  You dont have any resource request.
+      </div>   -->
+
+<div class="well">
+  <div class="row mt-5">
+      <div class="col-md-4 mb-3" *ngFor="let res of Mybooking">
+          <div class="card text-justify">
+              <div class="card-body">
+                  <p class="card-text text-info"><strong >Resource booking details. </strong> </p> 
+                <p class="card-text"><strong>Resource : </strong> {{res.resource}} <span class="badge badge-success">{{res.Requeststatus}}</span></p>
+                <p class="card-title"><strong>Resource number :</strong> {{res.resourceNumber}} </p>
+                <p class="card-text"><strong>Owner :</strong> {{res.resourceOwnBy}} </p>
+                <!-- <p class="card-text"><strong>Email : </strong> {{res.owneremail}}</p>  -->
+                <p class="card-text text-info"><strong >Booking details </strong> </p> 
+                <p class="card-text"><strong>Booked by : </strong> {{res.nameofuser}}</p> 
+                <!-- <p class="card-text"><strong>Email:</strong> {{res.useremail}}</p> -->
+                <!-- <p class="card-text"><strong>Mobile Number : </strong> {{res.userMobileNumber}}</p>  -->
+                <p class="card-text"><strong>Booking data : </strong>{{res.bookingDate}}</p>
+                <p class="card-text"><strong>Payment mode :</strong> {{res.paymentMode}}</p>
+                <p class="card-text"><strong>Pickup location : </strong>{{res.picklocation}}</p>
+                <p class="card-text"><strong>Drop location :</strong> {{res.droplocation}}</p>
+                <p class="card-text"><strong>Resorce need for :</strong> {{res.noOfDays}} hour's.</p>
+                <p class="card-text"> <span class="badge badge-danger">Please Click belwo button to release resource.  </span> </p>
+            
+              </div>
+              <div class="card-footer text-muted">
+               <a (click)="bookingcompleted(res.resourceNumber)" style="color:#ffffff" class="btn btn-primary float-left">Request Completed. </a>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

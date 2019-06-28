@@ -1,0 +1,68 @@
+<div class="jumbotron" style="margin:2rem;">
+<div class="row" >
+  <div class="col-md-3">
+    
+  <div class=" card border-primary mb-3" style="max-width: 20rem; padding: 10px;  border-radius: 5px;">
+
+      <div style=" text-align:center">
+        <img src="../../assets/img/weather-icon.png" style="margin-top:-4rem; height: 150px; width: 150px;	" alt="Logo">
+      </div>
+      <div class="card-body" style="margin-top:-1rem" >
+          <form class="form">
+              <div class="form-group">
+                <label for="uname1"><strong>Enter city name</strong></label>
+                <input type="text" [(ngModel)]="weatherInfo.cityName"   placeholder="Search" name="cityName" class="form-control rounded-0" required>
+              </div>
+            
+              <button type="button"    (click)="getWeatherdata()" class="btn btn-primary btn-block">Search</button>
+            </form>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-9" *ngIf="resposererror">
+      <div class="card border-success " style="">
+          <div class="card-header"></div>
+          <div class="card-body">
+              
+            <h4 class="card-title list-group-item list-group-item-success">{{weatherstatus?weatherstatus:''}} </h4>
+            <!-- <h4 class="card-title list-group-item list-group-item-success">{{weatherData.sys[sunrise]}} 
+            </h4>
+            <h4 class="card-title list-group-item list-group-item-success">{{weatherData.sys[sunset]}} </h4> -->
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">pressure: {{weatherData.pressure}}</li>
+              <li class="list-group-item"> humidity: {{weatherData.humidity}} </li>
+
+              <!-- <li class="list-group-item">Temp: {{weatherData.temp - 273.15 | number:2}}</li> -->
+              <li class="list-group-item"> Temperature: {{ weatherData.temp_max -273.15 | number}} </li>
+              <!-- <li class="list-group-item">temp_min: {{weatherData.temp_min-273.15}}</li> -->
+              <!-- <li class="list-group-item"> Pressure : {{weatherData.humidity}} </li> -->
+              
+              </ul>
+          </div>
+        </div>
+  </div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<!--
+  Kelvin to Fahrenheit is:
+  ( kelvinValue - 273.15)
+ -->
+<style>
+.rounded-0 {
+    border-radius: 0.5rem !important;
+}
+</style>
+
+
+
+

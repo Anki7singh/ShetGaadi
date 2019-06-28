@@ -1,0 +1,99 @@
+<div class="jumbotron  animated fadeInLeft" style="margin:0.5rem">
+
+  <div *ngFor="let res of resourceget" class="row">
+
+    <div class="col-md-4" style="max-width: 28rem;max-height:22rem; ">
+      <div class=" card img-fluid border-primary mb-3" style="padding: 1px;  border-radius: 5px;">
+        <img class="card-img-top" src="{{res.imgs.value}}" />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card border-success">
+        <div class="card-body">
+          <ul style="padding-left:2rem" class="list-group list-group-flush">
+            <li class="text-primary list-group-item">Resource Details</li>
+            <li class="text-muted list-group-item"> Resource Id: {{res.ownerID}} </li>
+            <li class="text-muted list-group-item">Own by : {{ res.resourceOwnBy }}</li>
+            <li class="text-muted list-group-item"> Status : {{res.resourceStatus}}</li>
+            <li class="text-muted list-group-item">Resource name: {{res.resource}}</li>
+            <li class="text-muted list-group-item"> Resource number: {{res.resourceNumber}} </li>
+          </ul>
+
+          <ul style="padding-left:2rem" class="list-group list-group-flush">
+            <li class="text-primary list-group-item">Your profile Details </li>
+            <li class="text-muted list-group-item"> Name : {{name}} </li>
+            <li class="text-muted list-group-item"> Your userid : {{userid}} </li>
+            <li class="text-muted list-group-item"> Your Phone number : {{phoneNumber}} </li>
+            <li class="text-muted list-group-item"> Your email : {{email}} </li>
+            
+          </ul>
+          <ul style="padding-left:2rem" class="list-group list-group-flush">
+            <li class="text-primary list-group-item">Booking Details </li>
+            <li class="text-muted list-group-item">
+              <form [formGroup]="form" name="form">
+
+                  <div class="form-group">
+                      <!-- <label>Duration</label> -->
+                      <label>Select pickup location :</label>
+                      <input type="text" name="picklocation" [formControl]="form.controls['picklocation']"
+                        placeholder="Pickup location " class=" form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label>Duration</label> -->
+                        <label>Select drop location:</label>
+                        <input type="text" name="droplocation" [formControl]="form.controls['droplocation']"
+                          placeholder=" Drop location " class=" form-control" required>
+                      </div>
+
+                <div class="form-group">
+                  <!-- <label>Duration</label> -->
+                  <label>Select booking hour's:</label>
+                  <input type="number" name="days" [formControl]="form.controls['days']"
+                    placeholder="Total number of hours" class=" form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Select booking date</label>
+                  <input class="form-control" type="date" [formControl]="form.controls['bookingdate']"
+                    name="bookingdate" placeholder="MM/DD/YYYY" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Payment method </label>
+                  <select [formControl]="form.controls['paymentmode']" name="paymentmode" class="custom-select"
+                    required>
+                    <option selected="cash">Cash</option>
+                    <option value="online">Onilne</option>
+                  </select>
+                </div>
+                <button type="button" (click)="submitbookingdata()" class="btn btn-success float-right">Make a
+                  request</button>
+
+                <!-- <button *ngIf="addRegisterResponseSuccess" style="margin:10px" class="btn btn-success float-left"> Your request sent. please wait for response from owner.</button> -->
+
+                <div style="margin-top:70px;padding-right:0.8rem;" class="alert alert-dismissible alert-success"
+                  *ngIf="addRegisterResponseSuccess">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>Request send!</strong> {{addRegisterResponseSuccess}}.
+                </div>
+              </form>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+
+<style>
+  .rounded-0 {
+    border-radius: 0.5rem !important;
+  }
+</style>
